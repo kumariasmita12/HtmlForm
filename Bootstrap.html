@@ -28,6 +28,31 @@ background-color:Aquamarine;
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<script>
+function validateForm() {
+    var a =document.getElementById("email").value;
+  var b= a.indexOf("@");
+  var s=a.substring(b, a.length);
+  if(!(s=="@gmail.com"))
+  {
+     alert("email is invalid ");
+	 return false;
+	 
+	 }
+var x =document.getElementById("pwd").value;
+    if (x.length < 6) {
+        alert("password must be grether than six");
+        return false;
+    }
+	 var g= document.getElementsByName('gender');
+            if(g[0].checked == true){
+             alert("select female");
+            return false;
+	}
+	}
+
+</script>
+
 <body align="center" class ="body1">
 
 
@@ -55,7 +80,7 @@ The fact that PHP was not originally designed, but instead was developed organic
    
 	</div>
   <hr>
- <form class="form-inline" action="">
+ <form class="form-inline" action="" onsubmit="validateForm()">
  
     <div class="form-group" >
 	<br>
@@ -64,28 +89,17 @@ The fact that PHP was not originally designed, but instead was developed organic
 <br><label>Password:</label>
      <br>  <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" required><br>
 	<br>
-<label>Gender:</label>
-<select>
-<option value="Male">Female</option>
-<option value="Female">Male</option>
+<label for="gender">Gender:</label>
+	   <div class="radio">
+          <label><input type="radio" name="gender" id="m">Male</label>
+          <label><input type="radio" name="gender" id="f">Female</label>
+       </div>
 <br>
 </select>
-<br>
-<br><button type=""button" onclick="myFunction()"" class="btn btn-default">Submit</button>
+<br><input type="submit" value="submit">
 <br>
 <br>
 </form>
-<id="password">
-<script>
-function myFunction() {
-    var x, text;
-	   x = document.getElementById("password").value;
-	    // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x) || x > 6 ) {
-        text = "Input not valid";
-    } else {
-        text = "Input OK";
-    }
    </div>
    <hr>
    
